@@ -18,6 +18,26 @@
 
 <ion-button (click)="toggleAdmin()">Toggle button</ion-button>
 
+<!-- # Declara pay -->
+
+<!-- # Interpolacion de unidad de pesos -->
+<p>
+  {{ amount | currency: 'USD' }}
+</p>
+
+<!-- # Interpolacion de unidad de fecha -->
+<p>
+  {{ todayIs | date: 'short' }}
+</p>
+
+<!-- Interpolacion de calculo de iva asignado -->
+<p>
+  Amount with taxes: {{ amount | tax: 16 | currency: 'USD' }}
+</p>
+
+<p app:Highlight>This is invalid</p>
+<p [appHighlight]="color">Highlight me!</p>
+
 <ion-alert
   [isOpen]="isAlertOpen"
   header="A Short Title Is Best"

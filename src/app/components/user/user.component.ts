@@ -15,8 +15,12 @@ export class UserComponent  implements OnInit {
   public isAlertOpen: boolean = false;
   public alertButtons: string[] = ['Yes','No'];
   public alertMessage: string = '';
+  public amount: number = 123456;
+  public todayIs: Date = new Date();
 
   constructor() { }
+
+  color = 'yellow';
 
   ngOnInit () {}
 
