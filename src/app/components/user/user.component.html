@@ -1,0 +1,28 @@
+<p>
+  {{ title }} user works all!
+</p>
+
+<div *ngIf="isAdmin; else userTemplate">
+  <p>Is this admin user</p>
+</div>
+
+<ng-template #userTemplate>
+  <div>
+    <p>Is this a normal user</p>
+  </div>
+</ng-template>
+
+<!-- hijo del componente 'userComponent' -->
+<!-- Llamas al componente "calc" -->
+<app-calc [title]="calcTitle" (dispatchEvent)="handleEvent($event)"></app-calc>
+
+<ion-button (click)="toggleAdmin()">Toggle button</ion-button>
+
+<ion-alert
+  [isOpen]="isAlertOpen"
+  header="A Short Title Is Best"
+  subHeader="A Sub Header Is Optional"
+  [message]="alertMessage"
+  [buttons]="alertButtons"
+  (didDimiss)="handleEvent('')"
+></ion-alert>
