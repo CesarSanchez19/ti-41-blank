@@ -26,7 +26,7 @@
 </p>
 
 <!-- # Interpolacion de unidad de fecha -->
-<p>
+<p appHighlight>
   {{ todayIs | date: 'short' }}
 </p>
 
@@ -44,6 +44,7 @@
   <input type="radio" name="colors" (click)="color='cyan'">Cyan
 </div>
 <p [appHighlight]="color">Highlight me!</p>
+
 <ion-alert
   [isOpen]="isAlertOpen"
   header="A Short Title Is Best"
@@ -59,3 +60,5 @@
 <h3>ngNonBindable with a directive</h3>
 <div ngNonBindable [appHighlight]="'yellow'">This should not evaluate: {{ 1 +1 }}, but will highlight yellow.
 </div>
+
+<a [routerLink]="[' ']">Go back</a>
