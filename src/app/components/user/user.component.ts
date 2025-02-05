@@ -20,7 +20,7 @@ export class UserComponent  implements OnInit {
 
   constructor() { }
 
-  color = 'yellow';
+  color = '';
 
   ngOnInit () {}
 
