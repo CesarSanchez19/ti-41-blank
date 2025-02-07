@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -10,19 +12,20 @@ export class UserComponent  implements OnInit {
 
   public title: string = 'User Component';
   // Declaramos el dato de entrada de tipo string
-  public calcTitle: string = 'Calc component'
+  public calcTitle: string = 'Calc Component';
   public isAdmin: boolean = false;
   public isAlertOpen: boolean = false;
   public alertButtons: string[] = ['Yes','No'];
   public alertMessage: string = '';
-  public amount: number = 123456;
+  public amount: number = 1234.24;
   public todayIs: Date = new Date();
 
-  constructor() { }
+  constructor(
+    private localStorageService: LocalStorageService,
+    private router: Router
+  ) { }
 
-  color = '';
-
-  ngOnInit () {}
+  ngOnInit() {}
 
   toggleAdmin() {
     this.isAdmin = !this.isAdmin;
@@ -32,6 +35,11 @@ export class UserComponent  implements OnInit {
     this.alertMessage = event;
     this.isAlertOpen = !this.isAlertOpen;
     alert(event);
+  }
+
+  logOut() {
+    this.localStorageService.setItem('logedIn', false);
+    this.router.navigate(['/login']);
   }
 
 }

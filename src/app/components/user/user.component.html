@@ -1,14 +1,14 @@
 <p>
-  {{ title }} user works all!
+  {{title}} user works all!
 </p>
 
-<div *ngIf="isAdmin; else userTemplate">
-  <p>Is this admin user</p>
+<div *ngIf="isAdmin; else userTemplste">
+  <p>Is admin user</p>
 </div>
 
-<ng-template #userTemplate>
+<ng-template #userTemplste>
   <div>
-    <p>Is this a normal user</p>
+    <p>Is not admin user</p>
   </div>
 </ng-template>
 
@@ -16,35 +16,31 @@
 <!-- Llamas al componente "calc" -->
 <app-calc [title]="calcTitle" (dispatchEvent)="handleEvent($event)"></app-calc>
 
-<ion-button (click)="toggleAdmin()">Toggle button</ion-button>
+<ion-button (click)="toggleAdmin()">Toggle Admin</ion-button>
 
-<!-- # Declara pay -->
-
-<!-- # Interpolacion de unidad de pesos -->
 <p>
-  {{ amount | currency: 'USD' }}
+  {{amount | currency: 'USD'}} <!-- Esto es un  -->
 </p>
 
-<!-- # Interpolacion de unidad de fecha -->
-<p appHighlight>
-  {{ todayIs | date: 'short' }}
+<p>
+  {{todayIs | date: 'short'}}
+</p>
+<p>
+  {{todayIs | date: 'dd/MM/yyyy'}}
 </p>
 
-<!-- Interpolacion de calculo de iva asignado -->
 <p>
-  Amount with taxes: {{ amount | tax: 16 | currency: 'USD' }}
+  Amount with taxes: {{ amount | tax: 16 | currency: 'USD'}}
 </p>
 
 <p app:Highlight>This is invalid</p>
-<h1>My First Attribute Directive</h1>
-<h2>Pick a highlight color</h2>
-<div>
-  <input type="radio" name="colors" (click)="color='lightgreen'">Green
-  <input type="radio" name="colors" (click)="color='yellow'">Yellow
-  <input type="radio" name="colors" (click)="color='cyan'">Cyan
-</div>
-<p [appHighlight]="color">Highlight me!</p>
+<p appHighlight>Highlight me!</p>
 
+<a [routerLink]="['']">Go Back</a>
+
+<ion-button (click)="logOut()">Log Out</ion-button>
+
+<!-- Es una alerta  -->
 <ion-alert
   [isOpen]="isAlertOpen"
   header="A Short Title Is Best"
@@ -53,12 +49,4 @@
   [buttons]="alertButtons"
   (didDimiss)="handleEvent('')"
 ></ion-alert>
-<p [appHighlight]="color" defaultColor="violet">
-  Highlight me too!
-</p>
-
-<h3>ngNonBindable with a directive</h3>
-<div ngNonBindable [appHighlight]="'yellow'">This should not evaluate: {{ 1 +1 }}, but will highlight yellow.
-</div>
-
-<a [routerLink]="[' ']">Go back</a>
+<p></p>
